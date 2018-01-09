@@ -45,6 +45,11 @@ namespace AspNetCore01.Controllers
 		//   }
 
 		//http://localhost:62070/HelloWorld/Welcome?name=Rick&numtimes=4
+	    //Welcome
+		// Hello Rick
+		// Hello Rick
+		// Hello Rick
+		// Hello Rick
 		public IActionResult Welcome(string name, int numTimes = 1)
 	    {
 		    ViewData["Message"] = "Hello " + name;
