@@ -13,10 +13,14 @@ namespace AspNetCore01.Controllers
     {
 		// 
 	    // GET: /HelloWorld/
+		//public string Index()
+		//{
+		//	return "This is my default action...";
+		//}
 
-	    public string Index()
+	    public IActionResult Index()
 	    {
-		    return "This is my default action..."; 
+		    return View();
 	    }
 
 		//// 
@@ -34,10 +38,19 @@ namespace AspNetCore01.Controllers
 		//	return HtmlEncoder.Default.Encode($"Hello {name}, NumTimes is: {numTimes}");
 		//}
 
-		//http://localhost:62070/HelloWorld/Welcome/3?name=Rick
-		public string Welcome(string name, int ID = 1)
+		////http://localhost:62070/HelloWorld/Welcome/3?name=Rick
+		//public string Welcome(string name, int ID = 1)
+		//   {
+		//    return HtmlEncoder.Default.Encode($"Hello {name}, ID: {ID}");
+		//   }
+
+		//http://localhost:62070/HelloWorld/Welcome?name=Rick&numtimes=4
+		public IActionResult Welcome(string name, int numTimes = 1)
 	    {
-		    return HtmlEncoder.Default.Encode($"Hello {name}, ID: {ID}");
+		    ViewData["Message"] = "Hello " + name;
+		    ViewData["NumTimes"] = numTimes;
+
+		    return View();
 	    }
 	}
 }
