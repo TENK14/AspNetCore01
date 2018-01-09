@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
+using AspNetCore01.Models;
 
 namespace AspNetCore01
 {
@@ -22,6 +24,9 @@ namespace AspNetCore01
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            services.AddDbContext<AspNetCore01Context>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("AspNetCore01Context")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
